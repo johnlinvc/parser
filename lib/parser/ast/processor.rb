@@ -162,6 +162,7 @@ module Parser
       end
 
       alias on_csend on_send
+      alias on_pipesend on_send
 
       alias on_block    process_regular_node
 
