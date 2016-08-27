@@ -487,7 +487,7 @@ module Parser
 
     def op_assign(lhs, op_t, rhs)
       case lhs.type
-      when :gvasgn, :ivasgn, :lvasgn, :cvasgn, :casgn, :send, :csend, :pipesend
+      when :gvasgn, :ivasgn, :lvasgn, :cvasgn, :casgn, :send, :csend, :psend
         operator   = value(op_t)[0..-1].to_sym
         source_map = lhs.loc.
                         with_operator(loc(op_t)).
@@ -704,7 +704,7 @@ module Parser
       if !dot_t.nil? && value(dot_t) == :anddot
         :csend
       elsif !dot_t.nil? && value(dot_t) == :pipedot
-        :pipedot
+        :psend
       else
         # This case is a bit tricky. ruby23.y returns the token tDOT with
         # the value :dot, and the token :tANDDOT with the value :anddot.
@@ -751,7 +751,7 @@ module Parser
         diagnostic :error, :block_and_blockarg, nil, last_arg.loc.expression, [loc(begin_t)]
       end
 
-      if [:send, :csend, :pipesend, :super, :zsuper, :lambda].include?(method_call.type)
+      if [:send, :csend, :psend, :super, :zsuper, :lambda].include?(method_call.type)
         n(:block, [ method_call, args, body ],
           block_map(method_call.loc.expression, begin_t, end_t))
       else
