@@ -17,7 +17,7 @@ token kCLASS kMODULE kDEF kUNDEF kBEGIN kRESCUE kENSURE kEND kIF kUNLESS
       tWORDS_BEG tQWORDS_BEG tSYMBOLS_BEG tQSYMBOLS_BEG tSTRING_DBEG
       tSTRING_DVAR tSTRING_END tSTRING_DEND tSTRING tSYMBOL
       tNL tEH tCOLON tCOMMA tSPACE tSEMI tLAMBDA tLAMBEG tCHARACTER
-      tRATIONAL tIMAGINARY tLABEL_END tANDDOT
+      tRATIONAL tIMAGINARY tLABEL_END tANDDOT tPIPEDOT
 
 prechigh
   right    tBANG tTILDE tUPLUS
@@ -2302,6 +2302,10 @@ keyword_variable: kNIL
                 | tANDDOT
                     {
                       result = [:anddot, val[0][1]]
+                    }
+                | tPIPEDOT
+                    {
+                      result = [:pipedot, val[0][1]]
                     }
        opt_terms:  | terms
           opt_nl:  | tNL

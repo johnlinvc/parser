@@ -448,7 +448,7 @@ class Parser::Lexer
     '=>'  => :tASSOC,   '::'  => :tCOLON2,  '===' => :tEQQ,
     '<=>' => :tCMP,     '[]'  => :tAREF,    '[]=' => :tASET,
     '{'   => :tLCURLY,  '}'   => :tRCURLY,  '`'   => :tBACK_REF2,
-    '!@'  => :tBANG,    '&.'  => :tANDDOT,
+    '!@'  => :tBANG,    '&.'  => :tANDDOT,  '|.'  => :tPIPEDOT,
   }
 
   PUNCTUATION_BEGIN = {
