@@ -72,9 +72,6 @@ Bugs fixed:
  * Add :csend to Parser::Meta::NODE_TYPES (Markus Schirp)
  * lexer/dedenter: "\<\<x\n  y\\n  z\nx": don't dedent after escaped newline. (whitequark)
 
-v2.3.1.2 (2016-01-16)
----------------------
-
 v2.3.0.1 (2016-01-14)
 ---------------------
 
