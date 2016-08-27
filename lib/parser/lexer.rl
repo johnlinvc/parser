@@ -2121,7 +2121,7 @@ class Parser::Lexer
       # METHOD CALLS
       #
 
-      '.' | '&.' | '::'
+      '.' | '&.' | '|.' | '::'
       => { emit_table(PUNCTUATION)
            fnext expr_dot; fbreak; };
 
